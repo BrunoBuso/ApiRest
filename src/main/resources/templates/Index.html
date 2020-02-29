@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head class="headerAPI">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+    <title>ApiRest</title>
+</head>
+<header class="headerAPI">
+    <table align="center" cellpadding="3px" cellspacing="2px">
+        <tbody>
+        <form class="form-control" method="post" action="">
+           <tr>
+               <th>Usuario:
+                   <input  id="login" name="login" for="login" />
+               </th>
+            <th>Senha:
+                <input align="left"  id="senha" name="senha" for="senha"/>
+            </th>
+            <td>
+                <input class="btn btn-dark" onclick="fazerLogin(login,senha)"  type="submit" value="Entrar" name="btnEntrar"/>
+            </td>
+        </form>
+        </tr>
+        </tbody>
+    </table>
+</header>
+<body  style="background-color: #6c757d">
+
+<div class="container text-white" >
+<form name="formNumero" id="numero" method="post">
+ <label for="numero">Digite um número:</label>
+    <input class="form-control"  id="number" name="number" for="numero"/>
+    <input class="btn btn-dark" onclick="verifyNumber()" for="numero" type="button" value="Enviar" name="btnEnviar"/>
+    <p id="p_texto"></p>
+</form>
+</div>
+
+<script>
+    function verifyNumber() {
+        var variable = document.getElementById("number")
+        $.ajax({
+            type: "POST",
+            url: "/verificaNumero/",
+            dataType: 'json',
+            async: false,
+            success: function (retorno) {
+                var minhaVariavel = retorno
+                document.getElementById("p_texto").innerHTML = minhaVariavel;
+
+
+            }
+        });
+    }
+    function fazerLogin(login, senha){
+        $.ajax({
+            type: "POST",
+            url: "/fazerLogin/",
+            dataType: "json",
+            data: {
+                "login" : login,
+                "senha" : senha
+            }
+        })
+
+    }
+
+</script>
+
+</body>
+</html>
