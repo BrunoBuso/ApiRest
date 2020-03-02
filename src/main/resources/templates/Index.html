@@ -20,7 +20,7 @@
                 <input align="left"  id="senha" name="senha" for="senha"/>
             </th>
             <td>
-                <input class="btn btn-dark" onclick="fazerLogin(login,senha)"  type="submit" value="Entrar" name="btnEntrar"/>
+                <input class="btn btn-dark" onclick="fazerLogin()"  type="submit" value="Entrar" name="btnEntrar"/>
             </td>
         </form>
         </tr>
@@ -54,15 +54,21 @@
             }
         });
     }
-    function fazerLogin(login, senha){
+    function fazerLogin() {
+        var loginNovo = document.getElementById('login').value;
+        var senhaNovo = document.getElementById('senha').value;
         $.ajax({
-            type: "POST",
+            headers: {login: loginNovo, senha: senhaNovo},
+            method: "POST",
+            dataType: "application/json",
+            contentType: "application/json; charset=utf-8",
             url: "/fazerLogin/",
-            dataType: "json",
-            data: {
-                "login" : login,
-                "senha" : senha
-            }
+            data: JSON.stringify({"num1": "1", "num2": "2"}),
+            success : ( function(result,status,request) {
+                alert("Teste mensagem: "+ result+"estado atual: "+status)
+                alert("teste: "+request.getAllResponseHeaders())
+            })
+
         })
 
     }

@@ -1,5 +1,5 @@
 package br.com.fitsistemas.dev.apirest.controller;
-import br.com.fitsistemas.dev.apirest.controller.model.ApiModel;
+import br.com.fitsistemas.dev.apirest.model.ApiModel;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 

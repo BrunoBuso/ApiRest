@@ -1,4 +1,4 @@
-package br.com.fitsistemas.dev.apirest.controller.model;
+package br.com.fitsistemas.dev.apirest.model;
 
 public class ApiModel {
 
