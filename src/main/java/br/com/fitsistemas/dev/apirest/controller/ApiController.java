@@ -29,13 +29,13 @@ public class ApiController  {
         return "OK";
     }
 
-    @PostMapping(value = "/fazerLogin/")
-    public String fazerLogin(@RequestHeader("login")String login,@RequestHeader("senha") String senha, @RequestBody ApiModel model) {
+    @PostMapping(value = "/fazerSomaDeDoisNumeros/")
+    public String fazerSomaDeDoisNumeros(@RequestHeader("login")String login,@RequestHeader("senha") String senha, @RequestBody ApiModel model) {
             String validaLogin = "suka";
             String validaSenha = "123";
         if(validaLogin.equals(login) && validaSenha.equals(senha)) {
-            String result = Integer.toString(model.getNum1() + model.getNum2());
-            return "O resultado da SOMA é: " + result;
+            String resultado = Integer.toString(model.getNum1() + model.getNum2());
+            return "O resultado da SOMA é: " + resultado;
         }
         return "Login ou senha inválido";
     }
