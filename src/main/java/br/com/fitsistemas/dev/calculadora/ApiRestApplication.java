@@ -1,4 +1,4 @@
-package br.com.fitsistemas.dev.apirest;
+package br.com.fitsistemas.dev.calculadora;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

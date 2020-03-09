@@ -1,12 +1,12 @@
-package br.com.fitsistemas.dev.apirest.controller;
-import br.com.fitsistemas.dev.apirest.model.ApiModel;
+package br.com.fitsistemas.dev.calculadora.controller;
+
+import br.com.fitsistemas.dev.calculadora.model.ParametrosParaSoma;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-public class ApiController  {
+public class CalculadoraController {
 
     @GetMapping("/")
     public ModelAndView Index(){
@@ -30,11 +30,11 @@ public class ApiController  {
     }
 
     @PostMapping(value = "/fazerSomaDeDoisNumeros/")
-    public String fazerSomaDeDoisNumeros(@RequestHeader("login")String login,@RequestHeader("senha") String senha, @RequestBody ApiModel model) {
+    public String fazerSomaDeDoisNumeros(@RequestHeader("login")String login,@RequestHeader("senha") String senha, @RequestBody ParametrosParaSoma parametros) {
             String validaLogin = "suka";
             String validaSenha = "123";
         if(validaLogin.equals(login) && validaSenha.equals(senha)) {
-            String resultado = Integer.toString(model.getNum1() + model.getNum2());
+            String resultado = Integer.toString(parametros.getNumero1() + parametros.getNumero2());
             return "O resultado da SOMA é: " + resultado;
         }
         return "Login ou senha inválido";
