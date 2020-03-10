@@ -1,6 +1,1 @@
-<<<<<<< HEAD
-# ApiRest
-APIREST
-=======
-# ApiRest
->>>>>>> d49e430... primeiro commit
+<<<<<<< Calculadora(Somar dois números) >>>>>>>>>>>>>
